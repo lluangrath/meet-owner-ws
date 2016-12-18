@@ -9,7 +9,7 @@ const INDEX = path.join(__dirname, 'index.html');
 
 const server = express()
   .use((req, res) => res.sendFile(INDEX) )
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .listen(PORT, () => console.log(`WEBSOCKET Listening on ${ PORT }`));
 
 const wss = new SocketServer({ server });
 
@@ -23,3 +23,18 @@ setInterval(() => {
     client.send(new Date().toTimeString());
   });
 }, 1000);
+
+var httpServer = express();
+
+app.use(express.bodyParser());
+
+app.post('/', function(req, res){
+    console.log('POST /');
+    console.dir(req.body);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('thanks');
+});
+
+port = 80;
+app.listen(port);
+console.log('HTTP Listening at ' + port)
