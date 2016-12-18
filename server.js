@@ -26,7 +26,7 @@ setInterval(() => {
 }, 1000);
 
 var httpServer = express();
-
+var httpPort = 0;
 
 httpServer.use(bodyParser.json());
 httpServer.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +38,6 @@ httpServer.post('/', function(req, res){
     res.end('thanks');
 });
 
-port = 80;
+httpPort = 80;
 httpServer.listen(port);
 console.log('HTTP Listening at ' + port)
