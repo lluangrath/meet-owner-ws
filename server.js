@@ -19,7 +19,7 @@ wss.on('connection', (ws) => {
 
   ws.on('message',(msg)=>{
     wss.clients.forEach((client) => {
-      client.send(new Date().toTimeString());
+      client.send(msg);
     });
   });
 
