@@ -39,5 +39,5 @@ httpServer.post('/', function(req, res){
 });
 
 httpPort = 80;
-httpServer.listen(port);
-console.log('HTTP Listening at ' + port)
+httpServer.listen(httpPort);
+console.log('HTTP Listening at ' + httpPort)
