@@ -26,9 +26,9 @@ setInterval(() => {
 
 var httpServer = express();
 
-app.use(express.bodyParser());
+httpServer.use(express.bodyParser());
 
-app.post('/', function(req, res){
+httpServer.post('/', function(req, res){
     console.log('POST /');
     console.dir(req.body);
     res.writeHead(200, {'Content-Type': 'text/html'});
@@ -36,5 +36,5 @@ app.post('/', function(req, res){
 });
 
 port = 80;
-app.listen(port);
+httpServer.listen(port);
 console.log('HTTP Listening at ' + port)
