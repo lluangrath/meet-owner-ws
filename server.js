@@ -3,6 +3,7 @@
 const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, 'index.html');
@@ -26,7 +27,8 @@ setInterval(() => {
 
 var httpServer = express();
 
-httpServer.use(express.bodyParser());
+httpServer.use(bodyParser.json());
+httpServer.use(bodyParser.urlencoded({ extended: true }));
 
 httpServer.post('/', function(req, res){
     console.log('POST /');
